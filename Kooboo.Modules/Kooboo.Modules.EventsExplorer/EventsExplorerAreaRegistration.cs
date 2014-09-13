@@ -6,15 +6,17 @@ using Kooboo.CMS.Common;
 using Kooboo.CMS.Account.Services;
 using Kooboo.CMS.Account.Models;
 
-namespace Kooboo.Modules.XLIFF
+namespace Kooboo.Modules.EventsExplorer
 {
-    public class AreaRegistration : AreaRegistrationEx
+    public class EventsExplorerAreaRegistration : AreaRegistrationEx
     {
+        public const string Name = "EventsExplorer";
+
         public override string AreaName
         {
             get
             {
-                return "XLIFF";
+                return Name;
             }
         }
 
@@ -25,7 +27,7 @@ namespace Kooboo.Modules.XLIFF
                 AreaName + "/{controller}/{action}",
                 new { action = "Index" }
                 , null
-                , new[] { "Kooboo.Modules.XLIFF.Controllers", "Kooboo.Web.Mvc", "Kooboo.Web.Mvc.WebResourceLoader" }
+                , new[] { "Kooboo.Modules.EventsExplorer.Controllers", "Kooboo.Web.Mvc", "Kooboo.Web.Mvc.WebResourceLoader" }
             );
 
             //Kooboo.Web.Mvc.Menu.MenuFactory.RegisterAreaMenu(AreaName, AreaHelpers.CombineAreaFilePhysicalPath(AreaName, "Menu.config"));

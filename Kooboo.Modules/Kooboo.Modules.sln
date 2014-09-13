@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{9F95DE9C-DBD1-4133-BB9B-401C69A4D92B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Modules.SchemaSyncDatabase.SqlServer", "Kooboo.Modules.SchemaSyncDatabase.SqlServer\Kooboo.Modules.SchemaSyncDatabase.SqlServer.csproj", "{2678F690-0BDA-4111-8650-D102E03D7748}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Modules.XLIFF", "Kooboo.Modules.XLIFF\Kooboo.Modules.XLIFF.csproj", "{39EF5F0C-3227-436B-8CD8-BD79E7B91069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kooboo.Modules.EventsExplorer", "Kooboo.Modules.EventsExplorer\Kooboo.Modules.EventsExplorer.csproj", "{9EE8347A-7588-4D7C-AE17-95BBD7362AD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{39EF5F0C-3227-436B-8CD8-BD79E7B91069}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39EF5F0C-3227-436B-8CD8-BD79E7B91069}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39EF5F0C-3227-436B-8CD8-BD79E7B91069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE8347A-7588-4D7C-AE17-95BBD7362AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE8347A-7588-4D7C-AE17-95BBD7362AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE8347A-7588-4D7C-AE17-95BBD7362AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE8347A-7588-4D7C-AE17-95BBD7362AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

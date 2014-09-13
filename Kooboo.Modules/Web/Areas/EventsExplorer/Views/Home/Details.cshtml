@@ -1,0 +1,54 @@
+﻿@using Kooboo.Modules.EventsExplorer.Models
+
+@model WebEventDetailsModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Blank.cshtml";
+}
+@section Panel{
+    <ul class="panel">
+        <li>
+            <a href="@ViewContext.RequestContext.GetRequestValue("return")">
+                @Html.IconImage("cancel") @("Back".Localize())
+            </a>
+        </li>
+    </ul>
+}
+
+<div class="block common-form">
+    <h1 class="title">@ViewBag.Title</h1>
+    <table>
+        <tr>
+            <th>
+                <label for="FileName">FileName</label>
+            </th>
+            <td>
+                <input class="long" readonly="readonly" id="FileName" name="FileName" type="text" value="@(Model.FileInfo.Name ?? "")" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="Body">Body</label>
+            </th>
+            <td>
+                <textarea class="extra-large" readonly="readonly" id="Body" name="Body">@(Model.Body ?? "")</textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="CreationTime">CreationTime</label>
+            </th>
+            <td>
+                <input class="long" id="CreationTime" readonly="readonly" name="CreationTime" type="text" value="@(Model.FileInfo.CreationTime)" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="CreationTimeUtc">CreationTimeUtc</label>
+            </th>
+            <td>
+                <input class="long" id="CreationTimeUtc" readonly="readonly" name="CreationTimeUtc" type="text" value="@(Model.FileInfo.CreationTimeUtc)" />
+            </td>
+        </tr>
+    </table>
+</div>
