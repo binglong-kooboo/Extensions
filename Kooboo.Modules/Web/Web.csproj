@@ -510,6 +510,7 @@
     <Content Include="Areas\Sites\Styles\images\map-item-hover.png" />
     <Content Include="Areas\Sites\Styles\images\map-item.png" />
     <Content Include="Areas\Sites\Styles\sites.css" />
+    <Content Include="Cms_Data\Views\Shared\README.txt" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -538,7 +539,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\EventsExplorer\Views\Shared\" />
-    <Folder Include="Cms_Data\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Account\Menu.config" />
@@ -851,6 +851,70 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\EventsExplorer\Views\Home\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cms_Data\Views\Shared\TextContentImport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NotFound\Index.cshtml" />
+    <Content Include="Views\Shared\Blank.cshtml" />
+    <Content Include="Views\Shared\Copy.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Dictionary.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\_TR.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Array.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AutoComplete.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Dictionary.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\File.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Float.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Hidden.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Image.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\KeyValueEquality.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Multiple_DropDownList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\RadioButtonList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Spinner.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TimeSpan.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Tinymce.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\UploadOrSelect.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\UserAgentPattern.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Version.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_NoLabel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Search.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_TR.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\Import.cshtml" />
+    <Content Include="Views\Shared\Master.Script.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\MenuItem.cshtml" />
+    <Content Include="Views\Shared\MessageBox.cshtml" />
+    <Content Include="Views\Shared\Popup.cshtml" />
+    <Content Include="Views\Shared\Relations.cshtml" />
+    <Content Include="Views\Shared\Site.cshtml" />
+    <Content Include="Views\Shared\_Grid2.cshtml" />
+    <Content Include="Views\Shared\_IconImage.cshtml" />
+    <Content Include="Views\Shared\_Loading_Info.cshtml" />
+    <Content Include="Views\Shared\_QuickLinks.cshtml" />
+    <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Shared\_SidebarTopSearch.cshtml" />
+    <Content Include="Views\Shared\_SitesNavTree.cshtml" />
+    <Content Include="Views\Shared\_Toolbar.cshtml" />
+    <Content Include="Views\Shared\_ToolbarButton.cshtml" />
+    <Content Include="Views\Shared\_ToolbarGroupButtons.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cms_Data\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

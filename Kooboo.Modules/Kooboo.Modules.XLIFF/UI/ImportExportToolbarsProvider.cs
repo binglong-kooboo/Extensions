@@ -9,7 +9,7 @@ using Kooboo.Globalization;
 
 namespace Kooboo.Modules.XLIFF.UI
 {
-    [Kooboo.CMS.Common.Runtime.Dependency.Dependency(typeof(IToolbarProvider))]
+    [Kooboo.CMS.Common.Runtime.Dependency.Dependency(typeof(IToolbarProvider), Key = "Kooboo.Modules.XLIFF.UI.ImportExportToolbarsProvider")]
     public class ImportExportToolbarsProvider : IToolbarProvider
     {
         private const string GroupName = "XLIFF";
@@ -31,18 +31,18 @@ namespace Kooboo.Modules.XLIFF.UI
 
         public IEnumerable<ToolbarButton> GetButtons(System.Web.Routing.RequestContext requestContext)
         {
-            return new ToolbarButton[]{
+            return new []{
                  new ToolbarButton(){
                     GroupName = GroupName,
                     CommandTarget = new MvcRoute(){ Action="Import",Controller="TextContent",Area=AreaName,RouteValues=new Dictionary<string,object>(){
-                        {"Formatter",GroupName}}
+                        {"formatter",GroupName.ToLower()}}
                     },
                     CommandText="Import".Localize()
                 },
                 new ToolbarButton(){
                     GroupName = GroupName,
                     CommandTarget = new MvcRoute(){ Action="Export",Controller="TextContent",Area=AreaName,RouteValues=new Dictionary<string,object>(){
-                        {"Formatter",GroupName}}
+                        {"formatter",GroupName.ToLower()}}
                     },
                     CommandText="Export".Localize(),
                     HtmlAttributes = new Dictionary<string,object>(){
@@ -55,7 +55,7 @@ namespace Kooboo.Modules.XLIFF.UI
 
         public IEnumerable<ToolbarGroup> GetGroups(System.Web.Routing.RequestContext requestContext)
         {
-            return new ToolbarGroup[]{ new ToolbarGroup()
+            return new []{ new ToolbarGroup()
             {
                 GroupName = GroupName,
                 DisplayText = "XLIFF".Localize(),
