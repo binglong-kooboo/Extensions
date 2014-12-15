@@ -13,7 +13,7 @@ using Kooboo.CMS.Content.Query;
 
 namespace Kooboo.Modules.XLIFF
 {
-    [Kooboo.CMS.Common.Runtime.Dependency.Dependency(typeof(ITextContentFormater), Key = "xliff", Order = 50)]
+    [Kooboo.CMS.Common.Runtime.Dependency.Dependency(typeof(ITextContentFormater), Key = "XLIFF", Order = 50)]
     public class TextContentToXLIFF : ITextContentFormater
     {
         #region .ctor

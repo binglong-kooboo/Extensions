@@ -35,9 +35,9 @@ namespace Kooboo.Modules.XLIFF.Controllers
         #endregion
 
         #region Export
-        public virtual void Export(string Formatter, string folderName, string[] docs)
+        public virtual void Export(string formatter, string folderName, string[] docs)
         {
-            var exporter = Kooboo.CMS.Common.Runtime.EngineContext.Current.Resolve<ITextContentFormater>((Formatter ?? ""));
+            var exporter = Kooboo.CMS.Common.Runtime.EngineContext.Current.Resolve<ITextContentFormater>((formatter ?? ""));
             var fileName = folderName + exporter.FileExtension;
             Response.AttachmentHeader(fileName);
 
