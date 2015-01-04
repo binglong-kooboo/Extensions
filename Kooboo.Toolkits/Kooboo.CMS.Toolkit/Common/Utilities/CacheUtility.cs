@@ -66,7 +66,7 @@ namespace Kooboo.CMS.Toolkit
             });
         }
 
-        public T GetOrAdd<T>(string key, Func<T> creator)
+        public static T GetOrAdd<T>(string key, Func<T> creator)
         {
             T value = Get<T>(key);
             if(value == null)
@@ -80,7 +80,7 @@ namespace Kooboo.CMS.Toolkit
             return value;
         }
 
-        public T GetOrAdd<T>(string key, Func<T> creator, DateTime absoluteExpirationy)
+        public static T GetOrAdd<T>(string key, Func<T> creator, DateTime absoluteExpirationy)
         {
             T value = Get<T>(key);
             if(value == null)
@@ -94,7 +94,7 @@ namespace Kooboo.CMS.Toolkit
             return value;
         }
 
-        public T GetOrAdd<T>(string key, Func<T> creator, TimeSpan slidingExpiration)
+        public static T GetOrAdd<T>(string key, Func<T> creator, TimeSpan slidingExpiration)
         {
             T value = Get<T>(key);
             if(value == null)
