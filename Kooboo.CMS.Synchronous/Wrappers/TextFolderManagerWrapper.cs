@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Kooboo.CMS.Common.Persistence.Non_Relational;
 using Kooboo.CMS.Content.Persistence;
 using Kooboo.CMS.Sites.Models;
 using Kooboo.CMS.Sites.Persistence;
@@ -42,6 +43,12 @@ namespace Kooboo.CMS.Synchronous.SyncContentFolder
             {
                 EnsureFolder(targetRepository, newFolder);
                 EnsureFolder(targetRepository, oldFolder);
+                //create folder when not exists
+                if (_textFolderManager.Get(targetRepository, oldFolder.FullName) == null)
+                {
+                    _textFolderManager.Add(targetRepository, oldFolder);
+                }
+
                 _textFolderManager.Update(targetRepository, newFolder, oldFolder);
             });
         }
