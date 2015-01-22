@@ -107,6 +107,7 @@
     <Compile Include="..\CMSAssemblyInfoGlobal.cs">
       <Link>CMSAssemblyInfoGlobal.cs</Link>
     </Compile>
+    <Compile Include="CustomUrlMapperRegister.cs" />
     <Compile Include="UrlMapperExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

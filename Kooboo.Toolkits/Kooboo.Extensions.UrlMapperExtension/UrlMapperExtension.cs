@@ -10,8 +10,8 @@ using System.Text.RegularExpressions;
 
 namespace Kooboo.Extensions.UrlMapperExtension
 {
-    [Dependency(typeof(DefaultUrlMapper), Key = "PinnacleUrlMapper")]
-    public class UrlMapperExtension : DefaultUrlMapper
+    [Dependency(typeof(IUrlMapper), Key = "UrlMapperExtension")]
+    public class UrlMapperExtension : IUrlMapper
     {
         #region IUrlMapper Members
 
@@ -68,7 +68,7 @@ namespace Kooboo.Extensions.UrlMapperExtension
             if (outputUrl.StartsWith("~"))
             {
                 var currentUri = System.Web.HttpContext.Current.Request.Url;
-                var baseUrl = String.Format("{0}://{1}{2}", currentUri.Scheme, currentUri.Host, currentUri.Port != 80 && currentUri.Port != 443 ? currentUri.Port.ToString() : "");
+                var baseUrl = String.Format("{0}://{1}{2}", currentUri.Scheme, currentUri.Host, currentUri.Port != 80 && currentUri.Port != 443 ? ":" + currentUri.Port.ToString() : "");
                 return Kooboo.Web.Url.UrlUtility.Combine(baseUrl, outputUrl.Substring(1));
             }
             return outputUrl;
