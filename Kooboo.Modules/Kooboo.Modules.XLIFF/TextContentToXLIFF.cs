@@ -1,4 +1,4 @@
-﻿using Kooboo.CMS.Content.Models;
+using Kooboo.CMS.Content.Models;
 using Kooboo.CMS.Content.Persistence;
 using Kooboo.CMS.Content.Services;
 using System;
@@ -48,16 +48,19 @@ namespace Kooboo.Modules.XLIFF
 
         public void Export(IEnumerable<TextContent> textContents, System.IO.Stream outputStream)
         {
-            var fileElements = textContents.Select(it => ToXElement(it));
+            var fileElements = textContents.Select(it => ToXElement(it)).Reverse();
+
             var xdoc = new XDocument(
              new XDeclaration("1.0", "utf-8", null),
              new XElement("xliff", new object[] { new XAttribute("version", "1.2") }.Concat(fileElements).ToArray())
              );
             xdoc.Save(outputStream);
         }
+
+
         private static XElement ToXElement(TextContent textContent)
         {
-            var xelement = new XElement("file", new XAttribute("original", textContent.UUID), new XAttribute("source-language", textContent.Repository), new XAttribute("target-language", ""));
+            var xelement = new XElement("file", new XAttribute("original", textContent.UUID), new XAttribute("parent", textContent.ParentUUID ?? ""), new XAttribute("source-language", textContent.Repository), new XAttribute("target-language", ""));
             var bodyElement = new XElement("body");
             xelement.Add(bodyElement);
             var schema = textContent.GetSchema().AsActual();
@@ -66,13 +69,10 @@ namespace Kooboo.Modules.XLIFF
 
                 foreach (var column in schema.Columns)
                 {
-                    if (column.DataType == DataType.String)
-                    {
-                        var value = textContent[column.Name];
+                    var value = textContent[column.Name];
 
-                        bodyElement.Add(new XElement("trans-unit", new XAttribute("id", column.Name), new XAttribute("datatype", value == null ? "null" : value.GetType().ToString()),
-                            new XElement("source", value), new XElement("target", value)));
-                    }
+                    bodyElement.Add(new XElement("trans-unit", new XAttribute("id", column.Name), new XAttribute("datatype", value == null ? "null" : value.GetType().ToString()),
+                        new XElement("source", value), new XElement("target", value)));
                 }
             }
 
@@ -117,7 +117,14 @@ namespace Kooboo.Modules.XLIFF
             else
             {
                 var nameValues = textContent.ToNameValueCollection();
-                _textContentManager.Add(textFolder.Repository, textFolder, nameValues, null, null, System.Web.HttpContext.Current.User.Identity.Name);
+                if (string.IsNullOrEmpty(textContent.ParentUUID))
+                {
+                    _textContentManager.Add(textFolder.Repository, textFolder, nameValues, null, null, System.Web.HttpContext.Current.User.Identity.Name);
+                }
+                else
+                {
+                    _textContentManager.Add(textFolder.Repository, textFolder, textFolder.Name, textContent.ParentUUID, nameValues, null, null, System.Web.HttpContext.Current.User.Identity.Name);
+                }
             }
 
         }
@@ -125,6 +132,8 @@ namespace Kooboo.Modules.XLIFF
         {
             TextContent textContent = null;
             var uuidAttr = element.Attribute("original");
+            var parentUuidAttr = element.Attribute("parent");
+
             if (uuidAttr != null)
             {
                 var uuid = uuidAttr.Value;
@@ -136,6 +145,13 @@ namespace Kooboo.Modules.XLIFF
                     {
                         textContent = new TextContent();
                         textContent.UUID = uuid;
+
+                        var parentUuid = parentUuidAttr.Value;
+                        if (!string.IsNullOrEmpty(parentUuid))
+                        {
+                            textContent.ParentUUID = parentUuid;
+                        }
+
                         var trans_unitNodes = bodyNode.Elements();
                         foreach (var item in trans_unitNodes)
                         {
